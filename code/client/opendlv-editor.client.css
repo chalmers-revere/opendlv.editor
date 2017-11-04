@@ -1,0 +1,82 @@
+* {
+	font-family: Arial, sans;
+  color: #ccc;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+body {
+  background: #303130;
+}
+
+input[type=text], select {
+  background-color: #444;
+  color: white;
+  border: 2px solid #777;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+input[type=submit], button {
+  background-color: #333;
+  color: #ccc;
+  border: 2px solid #222;
+  border-radius: 2px;
+  padding: 5px;
+}
+
+input[type=submit]:hover, button:hover {
+  background-color: #222;
+}
+
+#tabs {
+    margin: 0 auto;
+    width: 100%;
+}
+
+#tabs > input {
+	height: 1.75em;
+	visibility: hidden;
+}
+
+#tabs > label {
+	background: #303130;
+	color: #888;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 1em;
+	height: 1.75em;
+	line-height: 1.75em;
+	padding: 0 1em;
+	text-align: center;
+}
+
+#tabs > input:hover + label {
+	background: #252525;
+	color: #ccc;
+}
+
+#tabs > input:checked + label {
+	background: #252525;
+	color: #ccc;
+}
+
+#tabs >  div {
+	width: 100%;
+	opacity: 0;
+  margin: 2em;
+}
+
+#tabs input#tab-1:checked ~ #content-1,
+#tabs input#tab-2:checked ~ #content-2,
+#tabs input#tab-3:checked ~ #content-3,
+#tabs input#tab-4:checked ~ #content-4 {
+    opacity: 1;
+}
+
+#layers {
+  width: 1000px 500px;
+}

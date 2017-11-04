@@ -1,0 +1,72 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>OpenDLV editor</title>
+    <link rel="stylesheet" type="text/css" href="opendlv-editor.client.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="opendlv-editor.client.js"></script>
+  </head>
+
+  <body>
+    <div id="tabs">
+      <input id="tab-1" type="radio" name="tab-group" checked="checked" />
+      <label for="tab-1">Layers</label>
+      <input id="tab-2" type="radio" name="tab-group" />
+      <label for="tab-2">Editor</label>
+      <input id="tab-3" type="radio" name="tab-group" />
+      <label for="tab-3">Build</label>
+      <input id="tab-4" type="radio" name="tab-group" />
+      <label for="tab-4">Run</label>
+
+      <div id="content-1">
+        <div>
+          <div id="layers"></div>
+        </div>
+        <div>
+          <form id="layer-form">
+            Open-source:<br>
+            <input type="radio" name="layer-open" value="1" checked>Yes<br>
+            <input type="radio" name="layer-open" value="0">No<br>
+            <br>
+            Layer:<br>
+            <input type="text" id="layer-name" value="io">
+            <br>
+            Base image name:<br>
+            <input type="text" id="layer-baseimage-name" value="opendlv-core-on-opendavinci-on-base">
+            <br>
+            Base image version:<br>
+            <input type="text" id="layer-baseimage-version" value="v0.0.1">
+            <br>
+            <input type="submit" value="Create layer">
+          </form> 
+        </div>
+        <div>
+          <form id="namespace-form">
+            Layer:<br>
+            <input type="text" id="namespace-layer" value="opendlv.mantis">
+            <br>
+            Namespace:<br>
+            <select>
+              <option value="proxy">proxy (hardware interfaces)</option>
+              <option value="tool">tool (utilities for tuning and testing)</option>
+              <option value="system">system (diagnostics)</option>
+              <option value="proxy">logic (perception and behavior)</option>
+            </select>
+            <br>
+            Project or platform:<br>
+            <input type="text" id="namespace-suffix" value="mantis">
+            <br>
+            <input type="submit" value="Add namespace">
+          </form> 
+        </div>
+      </div>
+      <div id="content-2">
+      </div>
+      <div id="content-3">
+      </div>
+      <div id="content-4">
+      </div>
+	  </div>
+  </body>
+</html> 
