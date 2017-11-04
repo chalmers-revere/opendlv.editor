@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# incrementalBuild.sh - Script to build {{ name }}
+# incrementalBuild.sh - Script to build {{ layer }}
 # Copyright (C) 2016 Christian Berger
 #
 # This program is free software; you can redistribute it and/or
@@ -24,18 +24,18 @@ UID_AS=$2
 groupadd $BUILD_AS
 useradd $BUILD_AS -g $BUILD_AS
 
-cat <<EOF > /opt/{{ name }}.build/build.sh
+cat <<EOF > /opt/{{ layer }}.build/build.sh
 #!/bin/bash
-cd /opt/{{ name }}.build
+cd /opt/{{ layer }}.build
 
 ### NAMESPACE BEGIN ###
 ### NAMESPACE END ###
 
 EOF
 
-chmod 755 /opt/{{ name }}.build/build.sh
-chown $UID_AS:$UID_AS /opt/{{ name }}.build/build.sh
+chmod 755 /opt/{{ layer }}.build/build.sh
+chown $UID_AS:$UID_AS /opt/{{ layer }}.build/build.sh
 chown -R $UID_AS:$UID_AS /opt
 
-su -m `getent passwd $UID_AS|cut -f1 -d":"` -c /opt/{{ name }}.build/build.sh
+su -m `getent passwd $UID_AS|cut -f1 -d":"` -c /opt/{{ layer }}.build/build.sh
 

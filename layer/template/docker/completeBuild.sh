@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# completeBuild.sh - Script to build {{ name }}
+# completeBuild.sh - Script to build {{ layer }}
 # Copyright (C) 2016 Christian Berger
 #
 # This program is free software; you can redistribute it and/or
@@ -25,23 +25,23 @@ PACKAGING_ENABLED=$3
 groupadd $BUILD_AS
 useradd $BUILD_AS -g $BUILD_AS
 
-cat <<EOF > /opt/{{ name }}.build/build.sh
+cat <<EOF > /opt/{{ layer }}.build/build.sh
 #!/bin/bash
 export PATH=/usr/lib/ccache:$PATH
 export CCACHE_DIR=/opt/ccache
 
-cd /opt/{{ name }}.build
+cd /opt/{{ layer }}.build
 
-echo "[Docker builder] Complete build of {{ name }}."
+echo "[Docker builder] Complete build of {{ layer }}."
 cmake -E remove_directory .
-CCACHE_DIR=/opt/ccache PATH=/usr/lib/ccache:/opt/od4/bin:$PATH cmake -D CXXTEST_INCLUDE_DIR=/opt/{{ name }}.sources/thirdparty/cxxtest -D OPENDAVINCI_DIR=/opt/od4 -D PACKAGING_ENABLED=$PACKAGING_ENABLED -D ODVDOPENDLVSTANDARDMESSAGESET_DIR=/opt/opendlv.core -D CMAKE_INSTALL_PREFIX=/opt/{{ name }} /opt/{{ name }}.sources
+CCACHE_DIR=/opt/ccache PATH=/usr/lib/ccache:/opt/od4/bin:$PATH cmake -D CXXTEST_INCLUDE_DIR=/opt/{{ layer }}.sources/thirdparty/cxxtest -D OPENDAVINCI_DIR=/opt/od4 -D PACKAGING_ENABLED=$PACKAGING_ENABLED -D ODVDOPENDLVSTANDARDMESSAGESET_DIR=/opt/opendlv.core -D CMAKE_INSTALL_PREFIX=/opt/{{ layer }} /opt/{{ layer }}.sources
 
 CCACHE_DIR=/opt/ccache PATH=/usr/lib/ccache:/opt/od4/bin:$PATH make -j4
 EOF
 
-chmod 755 /opt/{{ name }}.build/build.sh
-chown $UID_AS:$UID_AS /opt/{{ name }}.build/build.sh
+chmod 755 /opt/{{ layer }}.build/build.sh
+chown $UID_AS:$UID_AS /opt/{{ layer }}.build/build.sh
 chown -R $UID_AS:$UID_AS /opt
 
-su -m `getent passwd $UID_AS|cut -f1 -d":"` -c /opt/{{ name }}.build/build.sh
+su -m `getent passwd $UID_AS|cut -f1 -d":"` -c /opt/{{ layer }}.build/build.sh
 

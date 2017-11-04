@@ -11,7 +11,8 @@ layer_dir = '../tmp'
 namespace = 'sim'
 
 values = {
-        "name" : "opendlv.sim",
+        "series" : "opendlv",
+        "layer" : "sim",
         "year" : "2017",
         "namespace" : namespace
         }

@@ -21,9 +21,9 @@ MAINTAINER Chalmers Revere "revere@chalmers.se"
 
 ADD opt.nonDev /opt
 
-RUN chown -R 1000:1000 /opt/{{ name }}
+RUN chown -R 1000:1000 /opt/{{ layer }}
 
 ENV QT_X11_NO_MITSHM=1
-ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/{{ name }}/lib
+ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/{{ layer }}/lib
 
-WORKDIR /opt/{{ name }}/bin
+WORKDIR /opt/{{ layer }}/bin

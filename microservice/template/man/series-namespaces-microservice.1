@@ -1,0 +1,32 @@
+.\" Manpage for {{ series }}-{{ namespaces | join("-") }}-{{ microservice.name | lower }}
+.\" Author: {{ author.name }} <{{ author.email }}>.
+
+.TH {{ series }}-{{ namespaces | join("-") }}-{{ microservice.name | lower }} 1 "{{ date }}" "0.0.1" "{{ series }}-{{ namespaces | join("-") }}-{{ microservice.name | lower }} man page"
+
+.SH NAME
+{{ series }}-{{ namespaces | join("-") }}-{{ microservice.name | lower }} \- This microservice is undocumented.
+
+
+
+.SH SYNOPSIS
+.B {{ series }}-{{ namespaces | join("-") }}-{{ microservice.name | lower }} --cid=<CID>
+
+
+.SH EXAMPLES
+The following command joins the container conference 111:
+
+.B {{ series }}-{{ namespaces | join("-") }}-{{ microservice.name | lower }} --cid=111
+
+
+
+.SH SEE ALSO
+
+
+
+.SH BUGS
+No known bugs.
+
+
+
+.SH AUTHOR
+{{ author.name }} ({{ author.email }})

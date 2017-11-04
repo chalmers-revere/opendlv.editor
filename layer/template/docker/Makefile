@@ -1,4 +1,4 @@
-# Makefile - Makefile to build {{ name }} using Docker-encapsulated builders.
+# Makefile - Makefile to build {{ layer }} using Docker-encapsulated builders.
 # Copyright (C) 2016 Christian Berger
 #
 # This program is free software; you can redistribute it and/or
@@ -29,9 +29,9 @@ BASE_IMAGE_DEV_VERSION=$(BASE_IMAGE_VERSION)
 
 ###############################################################################
 # Product names.
-PROJECT_NAME={{ name }}
-PRODUCT={{ name }}-on-
-DEST_DIR={{ name }}
+PROJECT_NAME={{ layer }}
+PRODUCT={{ layer }}-on-
+DEST_DIR={{ layer }}
 
 ###############################################################################
 # Shall deb or rpm packages be created?

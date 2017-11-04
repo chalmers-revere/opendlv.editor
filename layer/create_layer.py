@@ -8,7 +8,7 @@ from jinja2 import Environment,FileSystemLoader
 layer_dir = "../tmp"
 
 values = { 
-        "name" : "opendlv.sim",
+        "layer" : "opendlv.sim",
         "year" : "2017",
         "baseimage" : "opendlv-core-on-opendavinci-on-base"
         }
